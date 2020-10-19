@@ -1,0 +1,12 @@
+extends ../layouts/commoncss
+block content
+    h1 Matched users:
+    form(action="",class="form-control", method= 'get')
+        input(type="text",name="q")
+        button(class="btn btn-primary")   Search again
+    ul(class="list-group list-group-flush")
+        each user in users
+            li(class="list-group-item")=user.name
+    div(class="spinner-grow text-info" role="status")
+        span(class="sr-only") Loading..
+    a(href="./") Come back to Users

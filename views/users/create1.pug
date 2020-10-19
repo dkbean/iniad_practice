@@ -1,0 +1,50 @@
+extends ../layouts/commoncss
+
+block content
+
+    h1 Create users:
+
+    form(action="/users/create1",method="POST")
+        p
+            label Name
+            input(name="name",type="text", class="form-control") 
+        p
+            label Age
+            input(name="age",type="number", class= "form-control")
+        p
+            label The subject you want to improve: &nbsp &nbsp
+            input(type='checkbox', name='subject', value='1')#Math
+            label(for='Math')
+                span Math &nbsp &nbsp &nbsp
+            input(type='checkbox', name='subject', value='2')#Japanese
+            label(for='Japanese')
+                span Japanese &nbsp &nbsp &nbsp
+            input(type='checkbox', name='subject', value='3')#English
+            label(for='English')
+                span English &nbsp
+        p
+            label Your free time: &nbsp &nbsp
+            select(name="freeTimeD")
+                option(value="M") Monday
+                option(value="T") Tuesday
+                option(value="W") Wednesday
+                option(value="Th") Thursday
+                option(value="F") Friday
+                option(value="S") Saturday
+            span="    "
+            select(name="freeTime")
+                option(value="8") 8:00 -> 10:00
+                option(value="10") 10:00 -> 12:00
+                option(value="12") 12:00 -> 14:00
+                option(value="14") 14:00 -> 16:00
+                option(value="16") 16:00 -> 18:00
+                //- option(value="8") 8:00 -> 10:00
+
+        //- h3 Search for "suitable partner":
+        button(class="btn btn-primary") Search 
+
+    //- h2 Existed users:
+    //- ol
+    //-     each user in users
+    //-         li=user.name
+    

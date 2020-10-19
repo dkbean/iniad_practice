@@ -1,0 +1,25 @@
+extends ../layouts/commoncss
+
+block content
+    body
+        h1 List of existing users
+        //- identify where to go after clicking the button
+        
+        ul
+            each user in users1
+                li
+                    span=user.name +' '
+                    a(href="/users/"+ user.id) View this user's information
+        //- ol
+        //-     each user in users2
+        //-         li
+        //-             span=user.name +' '
+        //-             a(href="/users/"+ user.id) View this user's information
+        form(action="/users/search", method="get") 
+            input(type='text', name='q')
+            button(class="btn btn-info") Search
+        //- h1 What do you want to do?
+        p Find a friend who can help you improve your academic performance?  &nbsp
+            a(href="/users/create1") Click here
+        //- p Share your interesting knowledge with others?  &nbsp
+        //-     a(href="/users/create2") Click here

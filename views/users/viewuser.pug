@@ -1,0 +1,43 @@
+extends ../layouts/commoncss
+
+
+block content
+    h1 Your information
+    -var s=["Math", "Japanese", "English"]
+    p
+        div
+            b Name 
+            span= user.name
+        div
+            b="Age:     "
+            span= "    "+user. age
+        
+    div 
+        b Your favorite subjects:
+        ul
+            
+            if user.subject.length>0
+                each val in user.subject
+                    li= s[val-1]
+    p You have visited this site: #{user.num_visited} times
+    h2  Matched user:
+    ol
+      each i in users
+        div
+            li
+                b=i.name 
+                if i.age!=NULL
+                    p Age: #{i.age} 
+                p Both of you share the common interest in: 
+                ul
+                    each j in i.subject
+                        each k in user.subject
+                            if j==k
+                                li=s[j-1]
+
+
+    a(href="/users") Go back
+            
+
+
+            

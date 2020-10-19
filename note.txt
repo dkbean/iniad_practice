@@ -1,0 +1,3 @@
+Link -> users.route.js (input necessary functions)
+    -> execute appropriate functions in user.controller.js
+    -> render pug files, ....
