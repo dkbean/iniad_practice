@@ -10,10 +10,15 @@ router.get('/search', controller.search);
 
 router.get('/create1', controller.create1);
 // router.get('/create2', controller.create2);
+router.get('/invalid', controller.invalid) ; 
+
+
 
 router.get('/:id',controller.viewUser);
 
 router.post('/create1',controller.postCreate1);
+
+
 // router.post('/create2',controller.postCreate2);
 // router.get('/matching', controller.match);
 

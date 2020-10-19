@@ -24,25 +24,98 @@ module.exports={
     //     });
     // },
 
+    invalid: function(req,res){
+        var q= req.query.q;
+        // console.log(q);
+        if (q==null){
+            res.render('users/invalid',{
+            });
+        }
+        else {
+            var object1=db.get('users1').value();
+            // console.log(object1[0].subject);// show the favorite subjects of the first person
+            
+            //console.log(matchedUsers);
+            // res.render('users/search.pug',{
+            //     users : matchedUser,
+            // });
+            var curuser = db.get('users1').find({id:q}).value();
+            var is_ID_existed=(curuser!=null); //check the validation of inputted id
+            if (is_ID_existed){
+                var matchedUsers;
+                curuser.num_visited+=1;
+                matchedUsers = db.get('users1').filter(function(user){
+                    if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
+                        return 0;
+                    }
+                    var check1=0,check2=0;
+                    for (var i=0;i<curuser.subject.length;i++){
+                        if (user.subject.indexOf(curuser.subject[i])!=-1){
+                            check1=1;
+                            // break;
+                        }
+                    }
+                    check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
+                    return (check1 * check2 != 0);
+                    // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
+                }).write();
+
+                res.render('users/viewuser',{
+                    user: curuser,
+                    users : matchedUsers,
+                });
+            }
+            else {
+                // console.log("Invalid: " + q);
+                res.redirect('/users/invalid'); 
+            }
+        }
+        
+        // res.render('users/invalid',{
+        // });
+    },
+
     search: function(req,res){
         var q= req.query.q;
         var object1=db.get('users1').value();
-        // console.log(typeof q);
+        // console.log(q);
         // console.log(object1[0].subject);// show the favorite subjects of the first person
-        var matchedUsers;
-        if (q.length==""){
-            mathchedUsers={users:[]}; // need to be debugged
+        
+        //console.log(matchedUsers);
+        // res.render('users/search.pug',{
+        //     users : matchedUser,
+        // });
+        var curuser = db.get('users1').find({id:q}).value();
+        var is_ID_existed=(curuser!=null); //check the validation of inputted id
+        if (is_ID_existed){
+            var matchedUsers;
+            curuser.num_visited+=1;
+            matchedUsers = db.get('users1').filter(function(user){
+                if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
+                    return 0;
+                }
+                var check1=0,check2=0;
+                for (var i=0;i<curuser.subject.length;i++){
+                    if (user.subject.indexOf(curuser.subject[i])!=-1){
+                        check1=1;
+                        // break;
+                    }
+                }
+                check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
+                return (check1 * check2 != 0);
+                // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
+            }).write();
+
+            res.render('users/viewuser',{
+                user: curuser,
+                users : matchedUsers,
+            });
         }
         else {
-            matchedUsers = db.get('users1').filter(function(user){
-            return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;//check whether there are any common favorite subjects
-            }).write();
+            // console.log("Invalid: " + q);
+            res.redirect('/users/invalid'); 
         }
         
-        console.log(matchedUsers);
-        res.render('users/search.pug',{
-            users : matchedUsers,
-        });
     },
 
     create1: function(req,res){
@@ -50,6 +123,8 @@ module.exports={
             users : db.get('users1').value(),
         });
     },
+
+    
 
     // create2: function(req,res){
     //     res.render('users/create2',{

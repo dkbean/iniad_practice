@@ -1,0 +1,9 @@
+extends ../layouts/commoncss
+block content
+    h2 Sorry!
+    p We cannot find any users' profile with that ID
+    form(action="", method= 'get')
+        input(type="text",name="q")
+        button(class="btn btn-primary")   Search again
+    a(href="./create1") Are you new here?
+    
