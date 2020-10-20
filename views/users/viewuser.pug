@@ -11,6 +11,9 @@ block content
         div
             b="Age:     "
             span= "    "+user. age
+        div 
+            b Your ID:
+            span= " "+ user.id
         
     div 
         b Your favorite subjects:
@@ -34,7 +37,7 @@ block content
                         each k in user.subject
                             if j==k
                                 li=s[j-1]
-
+    
 
     a(href="/users") Go back
             

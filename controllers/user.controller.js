@@ -7,9 +7,10 @@ const shortid= require('shortid');
 var num_of_sub=3;
 module.exports={
     index:  function(req,res){
+        // console.log(db.get('users1').value().length);
         res.render('users/index.pug',{
             users1:  db.get('users1').value(),       
-            users2:  db.get('users2').value(),       // transfer value into html files
+            num_of_users: db.get('users1').value().length // transfer value into html files
         });
     },
 

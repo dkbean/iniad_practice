@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var bodyParser=require('body-parser');
 const port = 3000;
-
+const db= require('./db');
 const userRoute= require('./routes/users.route');// routes in "/users"
 
 app.use(express.json()) ;// for parsing application/json
@@ -11,12 +11,12 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+
+
 app.get('/', function (req, res) {
     res.render('index.pug',{
-        friends: 01,
-        name : 'Vinh',
-        age: 18,
-        a: [1,2,3],
+        users1:  db.get('users1').value(),       
+        num_of_users: db.get('users1').value().length // transfer value into html files
     });
 });
 
