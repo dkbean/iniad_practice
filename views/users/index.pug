@@ -16,10 +16,12 @@ block content
         //-             span=user.name +' '
         //-             a(href="/users/"+ user.id) View this user's information
         form(action="/users/search", method="get") 
-            input(type='text', name='q')
+            p You have visited this site and already have an ID? Please type your ID: &nbsp
+            input(type='text', name='q') 
+            span &nbsp &nbsp
             button(class="btn btn-info") Search
         //- h1 What do you want to do?
-        p Find a friend who can help you improve your academic performance?  &nbsp
+        p You are new and want to find a friend who can help you improve your academic performance?  &nbsp
             a(href="/users/create1") Click here
         //- p Share your interesting knowledge with others?  &nbsp
         //-     a(href="/users/create2") Click here
