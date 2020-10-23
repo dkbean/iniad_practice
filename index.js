@@ -14,7 +14,7 @@ app.set('views', './views');
 
 
 app.get('/', function (req, res) {
-    res.render('index.pug',{
+    res.render('users/index.pug',{
         users1:  db.get('users1').value(),       
         num_of_users: db.get('users1').value().length // transfer value into html files
     });

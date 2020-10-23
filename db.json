@@ -7,7 +7,7 @@
       "freeTimeD": "M",
       "freeTime": "12",
       "id": "IKcGhSPJp",
-      "num_visited": 18
+      "num_visited": 32
     },
     {
       "name": "Bin san ",
@@ -16,7 +16,7 @@
       "freeTimeD": "T",
       "freeTime": "10",
       "id": "NkGJL9HBR",
-      "num_visited": 17
+      "num_visited": 21
     },
     {
       "name": "Bin chan",
@@ -25,7 +25,29 @@
       "freeTimeD": "M",
       "freeTime": "12",
       "id": "N0D3KVJ8B",
-      "num_visited": 4
+      "num_visited": 9
+    },
+    {
+      "name": "Thành cán bộ",
+      "age": "19",
+      "subject": "1",
+      "freeTimeD": "M",
+      "freeTime": "14",
+      "id": "u0Fxoqw9I",
+      "num_visited": 27
+    },
+    {
+      "name": "Tuyen chan",
+      "age": "23",
+      "subject": [
+        "1",
+        "2",
+        "3"
+      ],
+      "freeTimeD": "M",
+      "freeTime": "12",
+      "id": "q6_0CMmR7",
+      "num_visited": 3
     }
   ]
 }

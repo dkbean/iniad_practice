@@ -14,7 +14,7 @@ block content
         div 
             b Your ID:
             span= " "+ user.id
-        
+            
     div 
         b Your favorite subjects:
         ul
@@ -23,7 +23,9 @@ block content
                 each val in user.subject
                     li= s[val-1]
     p You have visited this site: #{user.num_visited} times
-    h2  Matched user:
+    //- p="/users/match/"+user.id
+    
+    h2  "Potential" partners:
     ol
       each i in users
         div
@@ -37,9 +39,11 @@ block content
                         each k in user.subject
                             if j==k
                                 li=s[j-1]
-    
-
-    a(href="/users") Go back
+    p
+        form(action="/users/automatch/"+user.id, method="get") 
+            b Base on your score, let us help you find the most suitable partner for you: &nbsp
+            button(class="btn btn-primary") Search
+    a(href="/users") Homepage
             
 
 

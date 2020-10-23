@@ -6,6 +6,8 @@ const controller= require('../controllers/user.controller');// the file which co
 //distribute functions 
 router.get('/', controller.index);
 
+router.get('/admin', controller.admin)
+
 router.get('/search', controller.search);
 
 router.get('/create1', controller.create1);
@@ -13,8 +15,9 @@ router.get('/create1', controller.create1);
 router.get('/invalid', controller.invalid) ; 
 
 
-
 router.get('/:id',controller.viewUser);
+
+router.get('/automatch/:id',controller.match)
 
 router.post('/create1',controller.postCreate1);
 
