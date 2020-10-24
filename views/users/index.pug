@@ -1,10 +1,35 @@
 extends ../layouts/commoncss
 
 block content
+    head
+        style
+            include ./css/homepage.css
+            //- include ./css/test.css
     body
-        h1 Welcome to our website!!!
+        div(class="banner")
+            h1(class="banner-head") Welcome to group 5's website
+
+        div(class="information pure-g")
+            div(class="pure-u-1 pure-u-md-1-2")
+                div(class="l-box" , id="highlight")
+                    h3(class="information-head") There are #{num_of_users} people using this site.
+
+            div(class="pure-u-1 pure-u-md-1-2")
+                div(class="l-box")
+                    h3(class="information-head") You are new?
+                    a(href="/users/create1",id="create") Click here to create a new profile
+                    p
+            div(class="pure-u-1 pure-u-md-1-2")
+                div(class="l-box")
+                    form(action="/users/search", method="get") 
+                        h3(class="information-head") You have visited this site and already have an ID?
+                        div(class="ani_form")
+                                input(type="text",name="q", autocomplete="off" required='' )
+                                label(for="name",class="ani_label-name")
+                                    span(class="ani_content-name") Type your ID:
+                        button(class="btn btn-info") Search
         //- identify where to go after clicking the button
-        p There are #{num_of_users} people using this site.
+        //- p There are #{num_of_users} people using this site.
         //- ul
         //-     each user in users1
         //-         li
@@ -15,13 +40,15 @@ block content
         //-         li
         //-             span=user.name +' '
         //-             a(href="/users/"+ user.id) View this user's information
-        p You are new and want to find a friend who can help you improve your academic performance?  &nbsp
-            a(href="/users/create1") Click here
-        form(action="/users/search", method="get") 
-            p You have visited this site and already have an ID? Please type your ID: &nbsp
-            input(type='text', name='q') 
-            span &nbsp &nbsp
-            button(class="btn btn-info") Search
+        //- p Create a new profile?  &nbsp
+        //-     a(href="/users/create1") Click here
+        //- form(action="/users/search", method="get") 
+        //-     p You have visited this site and already have an ID?
+        //-     div(class="ani_form")
+        //-             input(type="text",name="q", autocomplete="off" required='' )
+        //-             label(for="name",class="ani_label-name")
+        //-                 span(class="ani_content-name") Type your ID:
+        //-     button(class="btn btn-info") Search
         //- h1 What do you want to do?
         
         //- p Share your interesting knowledge with others?  &nbsp

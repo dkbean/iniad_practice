@@ -2,49 +2,68 @@ extends ../layouts/commoncss
 
 
 block content
-    h1 Your information
-    -var s=["Math", "Japanese", "English"]
-    p
-        div
-            b Name 
-            span= user.name
-        div
-            b="Age:     "
-            span= "    "+user. age
-        div 
-            b Your ID:
-            span= " "+ user.id
+    head
+        style
+            //- include ./css/animation.css
+            include ./css/viewuser.css
+    body
+        div(class="banner")
+                h1(class="banner-head") Your profile
+        -var s=["Math", "Japanese", "English"]
+        div(class="information pure-g")
+                div
+                    div(class="alert alert-primary" )
+                        p
+                            div
+                                b(class="badge badge-primary") Name 
+                                span="   "+ user.name
+                                p
+                            div
+                                b(class="badge badge-secondary")="Age     "
+                                span= "    "+user. age
+                                p
+                            div 
+                                b(class="badge badge-danger") Your ID
+                                span= " "+ user.id
             
-    div 
-        b Your favorite subjects:
-        ul
-            
-            if user.subject.length>0
-                each val in user.subject
-                    li= s[val-1]
-    p You have visited this site: #{user.num_visited} times
-    //- p="/users/match/"+user.id
-    
-    h2  "Potential" partners:
-    ol
-      each i in users
-        div
-            li
-                b=i.name 
-                if i.age!=NULL
-                    p Age: #{i.age} 
-                p Both of you share the common interest in: 
-                ul
-                    each j in i.subject
-                        each k in user.subject
-                            if j==k
-                                li=s[j-1]
-    p
-        form(action="/users/automatch/"+user.id, method="get") 
-            b Base on your score, let us help you find the most suitable partner for you: &nbsp
-            button(class="btn btn-primary") Search
-    a(href="/users") Homepage
-            
+                        div 
+                            b( class="badge badge-warning") Your favorite subjects:
+                            ul
+                                
+                                if user.subject.length>0
+                                    each val in user.subject
+                                        li= s[val-1]
+                        p
+                            b You have visited this site: 
+                            span #{user.num_visited} times
+                    p
+                    p
+        div(class="information pure-g")
+                button(type="button", class="alert alert-info", id="po")  "Potential" partners
+                    span(class="badge badge-light") {Number_of_partners}
+                ol
+                    each i in users
+                        div(class="alert alert-warning")
+                            li
+                                p(class="badge badge-primary",id="name")=i.name 
+                                p
+                                if i.age!=NULL
+                                    p(class="badge badge-secondary")  #{i.age} years old
+                                p Both of you share the common interest in: 
+                                ul
+                                    span 
+                                        each j in i.subject
+                                            each k in user.subject
+                                                if j==k
+                                                    li(class="badge badge-warning")=s[j-1]
+                                                    span &nbsp &nbsp
+                                        
+                p
+                    form(action="/users/automatch/"+user.id, method="get") 
+                        b Base on your score, let us help you find the most suitable partner for you: &nbsp
+                        button(class="btn btn-primary") Auto match
+                a(href="/users") Homepage
+                
 
 
-            
+                
