@@ -17,7 +17,9 @@ router.get('/invalid', controller.invalid) ;
 
 router.get('/:id',controller.viewUser);
 
-router.get('/automatch/:id',controller.match)
+router.get('/match/:id1-:id2',controller.match);
+
+router.get('/automatch/:id',controller.automatch);
 
 router.post('/create1',controller.postCreate1);
 

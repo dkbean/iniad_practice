@@ -38,31 +38,61 @@ block content
                             span #{user.num_visited} times
                     p
                     p
-        div(class="information pure-g")
-                button(type="button", class="alert alert-info", id="po")  "Potential" partners
-                    span(class="badge badge-light") {Number_of_partners}
-                ol
-                    each i in users
-                        div(class="alert alert-warning")
-                            li
-                                p(class="badge badge-primary",id="name")=i.name 
-                                p
-                                if i.age!=NULL
-                                    p(class="badge badge-secondary")  #{i.age} years old
-                                p Both of you share the common interest in: 
-                                ul
-                                    span 
-                                        each j in i.subject
-                                            each k in user.subject
-                                                if j==k
-                                                    li(class="badge badge-warning")=s[j-1]
-                                                    span &nbsp &nbsp
-                                        
-                p
-                    form(action="/users/automatch/"+user.id, method="get") 
-                        b Base on your score, let us help you find the most suitable partner for you: &nbsp
-                        button(class="btn btn-primary") Auto match
-                a(href="/users") Homepage
+        if user.partner==null
+            div(class="information pure-g")
+                    button(type="button", class="alert alert-info", id="po")  "Potential" partners
+                        span(class="badge badge-light") #{found_num} 
+                    ol
+                        each i in users
+                            div(class="alert alert-warning")
+                                li
+                                    p
+                                        span(class="badge badge-primary",id="name")=i.name 
+                                    
+                                        span(id="male") &#9794;
+                                    if i.age!=NULL
+                                        p(class="badge badge-secondary")  #{i.age} years old
+                                    p
+                                        if i.hobbies!=NULL
+                                            span(class="badge badge-light",class="hobbies")  Hobbies:
+                                            span &nbsp #{i.hobbies} 
+                                    //- p Both of you share the common interest in: 
+                                    //- ul
+                                    //-     span 
+                                    //-         each j in i.subject
+                                    //-             each k in user.subject
+                                    //-                 if j==k
+                                    //-                     li(class="badge badge-warning")=s[j-1]
+                                    //-                     span &nbsp &nbsp
+                                    p
+                                        form(action="/users/match/"+user.id+'-'+i.id, method="get") 
+                                            b Want to become a twosome with #{i.name}? &nbsp
+                                            button(class="btn btn-primary") Pair
+                    p
+                        form(action="/users/automatch/"+user.id, method="get") 
+                            b Base on your score, let us help you find the most suitable partner for you: &nbsp
+                            button(class="btn btn-primary") Auto-match
+        else 
+            
+            div(class="information pure-g")
+                    button(type="button", class="alert alert-info", id="po") Your partner
+                        
+                    hr
+                    div(class="alert alert-success")               
+                        p(class="badge badge-primary",id="name")=partner.name
+                        p
+                        if partner.age!=NULL
+                            p(class="badge badge-secondary")  #{partner.age} years old
+                        p Both of you share the common interest in: 
+                        ul
+                            span 
+                                each j in partner.subject
+                                    each k in user.subject
+                                        if j==k
+                                            li(class="badge badge-warning")=s[j-1]
+                                        span &nbsp &nbsp
+        
+        a(href="/users") Go to Homepage
                 
 
 

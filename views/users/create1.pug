@@ -21,22 +21,32 @@ block content
                     label(for="name",class="ani_label-name")
                         span(class="ani_content-name") Your name:
             p
-                div(class="ani_form")
+                div(class="ani_form",id="age")
                     input(type="number",name="age", required='' )
                     label(for="name",class="ani_label-name")
                         span(class="ani_content-name") Your age:
             p
-                label The subject you want to improve: &nbsp &nbsp
-                input(type='checkbox', name='subject', value='1')#Math
+                label The subject you find interested in: &nbsp &nbsp
+                input(type='radio', name='subject', value='1')#Math
                 label(for='Math')
                     span Math &nbsp &nbsp &nbsp
-                input(type='checkbox', name='subject', value='2')#Japanese
+                input(type='radio', name='subject', value='2')#Japanese
                 label(for='Japanese')
                     span Japanese &nbsp &nbsp &nbsp
-                input(type='checkbox', name='subject', value='3')#English
+                input(type='radio', name='subject', value='3')#English
                 label(for='English')
                     span English &nbsp
-
+            p
+                div(class="ani_form",id="score")
+                    input(type="number",name="score",step="0.01", required='' )
+                    label(for="name",class="ani_label-name")
+                        span(class="ani_content-name") (Optional) Your score in that subject:
+                p(id="mini_guide") (Don't worry, this kind of information is secured! However,it's OK to type 0 in the form if u don't want to share it!)    
+            p
+                div(class="ani_form")
+                    input(type="text",name="hobbies", autocomplete="off" required='' )
+                    label(for="name",class="ani_label-name")
+                        span(class="ani_content-name") Other hobbies
             div(class="input-group mb-3")
                 div(class="input-group-prepend")
                     label(class="input-group-text" for="inputGroupSelect01") Your free time

@@ -101,28 +101,8 @@ module.exports={
             var curuser = db.get('users1').find({id:q}).value();
             var is_ID_existed=(curuser!=null); //check the validation of inputted id
             if (is_ID_existed){
-                var matchedUsers;
-                curuser.num_visited+=1;
-                matchedUsers = db.get('users1').filter(function(user){
-                    if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
-                        return 0;
-                    }
-                    var check1=0,check2=0;
-                    for (var i=0;i<curuser.subject.length;i++){
-                        if (user.subject.indexOf(curuser.subject[i])!=-1){
-                            check1=1;
-                            // break;
-                        }
-                    }
-                    check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
-                    return (check1 * check2 != 0);
-                    // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
-                }).write();
-
-                res.render('users/viewuser',{
-                    user: curuser,
-                    users : matchedUsers,
-                });
+                
+                res.redirect("/users/"+q); 
             }
             else {
                 // console.log("Invalid: " + q);
@@ -156,7 +136,8 @@ module.exports={
             if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
                 return 0;
             }
-            var check1=0,check2=0;
+            var check1=0,check2=0,check3=0;
+            check3= (user.partner==null);
             for (var i=0;i<curuser.subject.length;i++){
                 if (user.subject.indexOf(curuser.subject[i])!=-1){
                     check1=1;
@@ -164,19 +145,25 @@ module.exports={
                 }
             }
             check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
-            return (check1 * check2 != 0);
+            return (check1 * check2 * check3 != 0);
             // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
         }).write();
-
+        var partner;
+        if (curuser.partner!=null){
+            partner=db.get('users1').find({id:curuser.partner}).value();;
+        }
         res.render('users/viewuser',{
             user: curuser,
             users : matchedUsers,
+            found_num: matchedUsers.length,
+            partner: partner,
         });
     },
 
     postCreate1: function(req,res){
         req.body.id = shortid.generate();//create a random id
         req.body.num_visited=0;
+        req.body.partner=null;
         //var id1= req.body.id;
         // req.body.age = getRandomInt(100);
         // req.body.subject= [];
@@ -210,11 +197,67 @@ module.exports={
     },
     
     match  : function(req,res){
+        var id1 = req.params.id1;
+        var id2= req.params.id2;
+        var curuser = db.get('users1').find({id:id1}).value();
+        var paired_user= db.get('users1').find({id:id2}).value();
+        curuser.partner= paired_user.id;
+        paired_user.partner=curuser.id;
+        res.render('users/match.pug',{
+            user1: curuser,
+            user2: paired_user,
+        });
+        // console.log(id1);
+        // console.log(id2);
+    },
+
+    automatch  : function(req,res){
         var id = req.params.id;
         var curuser = db.get('users1').find({id:id}).value();
-        res.render('users/automatch.pug',{
-            user: curuser,
+        matchedUsers = db.get('users1').filter(function(user){
+            if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
+                return 0;
+            }
+            var check1=0,check2=0,check3=0;
+            check3= (user.partner==null);
+            for (var i=0;i<curuser.subject.length;i++){
+                if (user.subject.indexOf(curuser.subject[i])!=-1){
+                    check1=1;
+                    // break;
+                }
+            }
+            check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
+            return (check1 * check2 * check3 != 0);
+            // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
+        }).write();
+        // console.log(curuser.score);
+        var min_dif=100000,result=-1;
+        for (var i=0;i<matchedUsers.length;i++){
+            var user=matchedUsers[i];
+            if (user.score!=null){
+                // console.log(user.name+' '+Math.abs(curuser.score-user.score));
+                var dif=Math.abs(curuser.score-user.score);
+                if (min_dif>dif){
+                    min_dif=dif;
+                    result=i;
+                }
+            }
+            
+        }
+        paired_user= matchedUsers[result];
+        // console.log(paired_user.name);
+        curuser.partner= paired_user.id;
+        paired_user.partner=curuser.id;
+        res.render('users/match.pug',{
+            user1: curuser,
+            user2: paired_user,
         });
+        // res.render('users/match.pug',{
+        //     user1: curuser,
+        //     user2: paired_user,
+        // });
+        // console.log(id);
+        // console.log(id2);
     },
 
     // postCreate2: function(req,res){
