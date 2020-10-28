@@ -6,6 +6,32 @@ p {
     background-color: gray;
 }
 
+
+.box{
+    width: 250px;        
+    border: 5px solid black;
+} 
+
+#background_male{
+    background-image: url("https://i.ibb.co/mtCN8ps/rsz-1rsz-1rsz-1rsz-seifuku-bad3-blazer.png");
+    background-color: rgba(255, 255, 0, 0.274);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: right; 
+    /* image-resolution: 1; */
+    
+}
+
+#background_female{
+    background-image: url("https://i.ibb.co/YNmKthx/rsz-background-f.png");
+    background-color: rgba(255, 192, 206, 0.527);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: right; 
+    /* image-resolution: 1; */
+    
+}
+
 .hobbies{
     font-size: 16px;
     background-color: rgb(83, 182, 105);

@@ -92,7 +92,7 @@
       "freeTimeD": "M",
       "freeTime": "8",
       "id": "RxxUnGTvN",
-      "num_visited": 12
+      "num_visited": 41
     },
     {
       "name": "DD",
@@ -157,7 +157,7 @@
       "freeTimeD": "T",
       "freeTime": "8",
       "id": "5Ndmh0Qt6",
-      "num_visited": 3,
+      "num_visited": 6,
       "partner": "eUKYj3Ut7"
     },
     {
@@ -167,7 +167,7 @@
       "freeTimeD": "T",
       "freeTime": "8",
       "id": "0xtwpUWL0",
-      "num_visited": 8,
+      "num_visited": 9,
       "partner": null
     },
     {
@@ -210,7 +210,7 @@
       "freeTimeD": "M",
       "freeTime": "8",
       "id": "UjQDsYr4w",
-      "num_visited": 19,
+      "num_visited": 22,
       "partner": "GLTbHlb7v"
     },
     {
@@ -234,7 +234,7 @@
       "freeTimeD": "M",
       "freeTime": "8",
       "id": "n4SC3FnzW",
-      "num_visited": 2,
+      "num_visited": 46,
       "partner": null
     },
     {
@@ -258,7 +258,7 @@
       "freeTimeD": "M",
       "freeTime": "8",
       "id": "mqIP8_Xbo",
-      "num_visited": 1,
+      "num_visited": 2,
       "partner": "pYRbTkOIo"
     },
     {
@@ -270,7 +270,7 @@
       "freeTimeD": "M",
       "freeTime": "8",
       "id": "GLTbHlb7v",
-      "num_visited": 2,
+      "num_visited": 4,
       "partner": "UjQDsYr4w"
     }
   ]
