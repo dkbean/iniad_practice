@@ -2,276 +2,108 @@
   "users1": [
     {
       "name": "Dang Khanh Vinh",
-      "age": "29",
-      "subject": "2",
-      "freeTimeD": "M",
-      "freeTime": "12",
-      "id": "IKcGhSPJp",
-      "num_visited": 114
-    },
-    {
-      "name": "Bin san ",
-      "age": "20",
-      "subject": "3",
-      "freeTimeD": "T",
-      "freeTime": "10",
-      "id": "NkGJL9HBR",
-      "num_visited": 21
-    },
-    {
-      "name": "Bin chan",
-      "age": "2",
-      "subject": "2",
-      "freeTimeD": "M",
-      "freeTime": "12",
-      "id": "N0D3KVJ8B",
-      "num_visited": 9
-    },
-    {
-      "name": "Thành cán bộ",
-      "age": "19",
+      "student": "1F10200001",
+      "gender": "male",
+      "age": "18",
       "subject": "1",
-      "freeTimeD": "M",
-      "freeTime": "14",
-      "id": "u0Fxoqw9I",
-      "num_visited": 28
-    },
-    {
-      "name": "Tuyen chan",
-      "age": "23",
-      "subject": [
-        "1",
-        "2",
-        "3"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "12",
-      "id": "q6_0CMmR7",
-      "num_visited": 8
-    },
-    {
-      "name": "Test css",
-      "age": "2",
-      "subject": "2",
-      "freeTimeD": "W",
-      "freeTime": "8",
-      "id": "UOXO6cl5i",
-      "num_visited": 2
-    },
-    {
-      "name": "A",
-      "age": "2",
-      "subject": "1",
+      "score": "2.3",
+      "hobbies": "Eat",
       "freeTimeD": "M",
       "freeTime": "8",
-      "id": "mcHuM01A5",
-      "num_visited": 4
-    },
-    {
-      "name": "B",
-      "age": "3",
-      "subject": [
-        "1",
-        "2",
-        "3"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "nTiefloJt",
-      "num_visited": 3,
-      "partner": "XEpiTsyBx"
-    },
-    {
-      "name": "C",
-      "age": "32",
-      "subject": [
-        "1",
-        "2",
-        "3"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "RxxUnGTvN",
-      "num_visited": 41
-    },
-    {
-      "name": "DD",
-      "age": "32",
-      "subject": "1",
-      "freeTimeD": "T",
-      "freeTime": "8",
-      "id": "pvn3zhTIO",
-      "num_visited": 2
-    },
-    {
-      "name": "Bi",
-      "age": "3",
-      "subject": "2",
-      "freeTimeD": "M",
-      "freeTime": "10",
-      "id": "lZgXKZoI3",
-      "num_visited": 1
-    },
-    {
-      "name": "Bii",
-      "age": "3",
-      "subject": [
-        "1",
-        "2"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "RVFGcY1Da",
-      "num_visited": 3
-    },
-    {
-      "name": "Bin san",
-      "age": "3",
-      "subject": [
-        "1",
-        "3"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "4dpik5uvF",
-      "num_visited": 15,
-      "partner": "nTiefloJt"
-    },
-    {
-      "name": "a",
-      "age": "2",
-      "subject": [
-        "1",
-        "3"
-      ],
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "XEpiTsyBx",
-      "num_visited": 11,
-      "partner": "nTiefloJt"
-    },
-    {
-      "name": "Dan",
-      "age": "3",
-      "subject": "2",
-      "freeTimeD": "T",
-      "freeTime": "8",
-      "id": "5Ndmh0Qt6",
-      "num_visited": 6,
-      "partner": "eUKYj3Ut7"
-    },
-    {
-      "name": "Friend of Dan ",
-      "age": "3",
-      "subject": "2",
-      "freeTimeD": "T",
-      "freeTime": "8",
-      "id": "0xtwpUWL0",
+      "contact": "Line",
+      "id": "LU_maOcfC",
       "num_visited": 9,
       "partner": null
     },
     {
-      "name": "GF of Dan",
-      "age": "2",
-      "subject": "2",
-      "freeTimeD": "T",
-      "freeTime": "8",
-      "id": "eUKYj3Ut7",
-      "num_visited": 10,
-      "partner": "5Ndmh0Qt6"
-    },
-    {
-      "name": "Test score",
-      "age": "3",
-      "subject": "2",
-      "score": "2.93",
+      "name": "Tran Ba Tuyen",
+      "student": "12313213",
+      "gender": "male",
+      "age": "19",
+      "subject": "1",
+      "score": "2.9",
+      "hobbies": "Nothing",
       "freeTimeD": "M",
       "freeTime": "8",
-      "id": "n8uLM28dU",
+      "contact": "Slack",
+      "id": "rphs-EGRC",
+      "num_visited": 1,
+      "partner": "2JeTSpl6v"
+    },
+    {
+      "name": "Tran Xuan Anh",
+      "student": "12312asd",
+      "gender": "female",
+      "age": "18",
+      "subject": "1",
+      "score": "2",
+      "hobbies": "Nothing",
+      "freeTimeD": "M",
+      "freeTime": "8",
+      "contact": "Facebook",
+      "id": "mqIaXpShK",
+      "num_visited": 2,
+      "partner": null
+    },
+    {
+      "name": "Pham Dinh Duy",
+      "student": "12kjasd",
+      "gender": "male",
+      "age": "18",
+      "subject": "1",
+      "score": "3",
+      "hobbies": "Nothing",
+      "freeTimeD": "M",
+      "freeTime": "8",
+      "contact": "go to my house",
+      "id": "UdUsSgq2J",
+      "num_visited": 2,
+      "partner": null
+    },
+    {
+      "name": "dasds",
+      "student": "12312",
+      "gender": "male",
+      "age": "2323",
+      "subject": "2",
+      "score": "2",
+      "hobbies": "asd",
+      "freeTimeD": "M",
+      "freeTime": "8",
+      "contact": "cannot",
+      "id": "aXR89g7z0",
+      "num_visited": 3,
+      "partner": null
+    },
+    {
+      "name": "A",
+      "student": "231",
+      "gender": "male",
+      "age": "2",
+      "subject": "1",
+      "score": "0",
+      "hobbies": "Nothing",
+      "freeTimeD": "M",
+      "freeTime": "8",
+      "contact": "Cannot",
+      "id": "_LAuW7Llf",
       "num_visited": 1,
       "partner": null
     },
     {
-      "name": "H",
-      "age": "3",
-      "subject": "3",
-      "score": "3.19",
+      "name": "Bui Duc Anh ",
+      "student": "1231",
+      "gender": "male",
+      "age": "19",
+      "subject": "1",
+      "score": "3",
+      "hobbies": "Watching youtube",
       "freeTimeD": "M",
       "freeTime": "8",
-      "id": "trlyDJ4US",
+      "contact": "Facebook",
+      "id": "2JeTSpl6v",
       "num_visited": 2,
-      "partner": null
-    },
-    {
-      "name": "lo",
-      "age": "23",
-      "subject": "1",
-      "score": "3.1",
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "UjQDsYr4w",
-      "num_visited": 22,
-      "partner": "GLTbHlb7v"
-    },
-    {
-      "name": "adasd",
-      "age": "8",
-      "subject": "1",
-      "score": "20.3",
-      "hobbies": "Play LOL, ...",
-      "freeTimeD": "W",
-      "freeTime": "10",
-      "id": "hwMy7AZoM",
-      "num_visited": 2,
-      "partner": null
-    },
-    {
-      "name": "d",
-      "age": "3",
-      "subject": "1",
-      "score": "32",
-      "hobbies": "Nothing",
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "n4SC3FnzW",
-      "num_visited": 46,
-      "partner": null
-    },
-    {
-      "name": "friend of d",
-      "age": "3",
-      "subject": "1",
-      "score": "2.93",
-      "hobbies": "Nothing, too!",
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "pYRbTkOIo",
-      "num_visited": 21,
-      "partner": "mqIP8_Xbo"
-    },
-    {
-      "name": "Friend of friend of d",
-      "age": "3",
-      "subject": "1",
-      "score": "3.0",
-      "hobbies": "Nothing",
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "mqIP8_Xbo",
-      "num_visited": 2,
-      "partner": "pYRbTkOIo"
-    },
-    {
-      "name": "DD",
-      "age": "32",
-      "subject": "1",
-      "score": "2.9",
-      "hobbies": "No",
-      "freeTimeD": "M",
-      "freeTime": "8",
-      "id": "GLTbHlb7v",
-      "num_visited": 4,
-      "partner": "UjQDsYr4w"
+      "partner": "rphs-EGRC"
     }
   ]
 }

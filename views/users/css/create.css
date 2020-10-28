@@ -8,6 +8,14 @@ p {
     line-height: 1.6em;
 }
 
+body{
+    /* background-color: tomato; */
+    
+    background: transparent url('https://4.bp.blogspot.com/-dElkjRKyTXI/W6DTxN0z3cI/AAAAAAABO_E/nqrrUzCqlKk6D67k0UTAGVESI2L5RKgeACLcBGAs/s800/school_eakon_danbou_seifuku.png') right no-repeat ;
+    background-size: 30%;
+    
+}
+
 #score{
     width: 70%;
 }
@@ -70,16 +78,15 @@ p {
 
     .banner-head {
         display: table-cell;
-        /* text-align: center; */
-        vertical-align: middle;
-        padding-top: 80px;
-        /* line-height:170px; */
-        margin-bottom: 0;
-        font-size: 2em;
-        color: whitesmoke;
+        align-content: center;
+        /* vertical-align: middle; */
+        /* margin-bottom: 0; */
+        /* font-size: 20em; */
+        color: white;
         font-weight: 500;
-        text-shadow: 0 1px 1px black;
+        /* text-shadow: 0 1px 1px black; */
     }
+
 
 
  .information {
@@ -99,7 +106,8 @@ p {
 
 @media (min-width: 480px) {
     .banner {
-        height: 170px;
+        height: 500px;
+        padding-top: 400;
     }
     .banner-head {
         font-size: 3em;

@@ -44,12 +44,15 @@ block content
                         span(class="badge badge-light") #{found_num} 
                     ol
                         each i in users
-                            div(class="alert alert-warning",id="background_female")
+                            //- p="background_"+i.gender
+                            div(class="alert alert-warning",id="background_"+i.gender)
                                 li 
                                     p
                                         span(class="badge badge-primary",id="name")=i.name 
-                                    
-                                        span(id="male") &#9794;
+                                        if i.gender=="male"
+                                            span(id="gender") &#9794;
+                                        else 
+                                            span(id="gender") &#9792;
                                     if i.age!=NULL
                                         p(class="badge badge-secondary")  #{i.age} years old
                                     p
@@ -68,10 +71,16 @@ block content
                                         form(action="/users/match/"+user.id+'-'+i.id, method="get") 
                                             b Want to become a twosome with #{i.name}? &nbsp
                                             button(class="btn btn-primary") Pair
-                    p
-                        form(action="/users/automatch/"+user.id, method="get") 
-                            b Base on your score, let us help you find the most suitable partner for you: &nbsp
-                            button(class="btn btn-primary") Auto-match
+                    if found_num!=0&&user.score!=0
+                        p
+                            form(action="/users/automatch/"+user.id, method="get") 
+                                b Base on your score, let us help you find the most suitable partner for you: &nbsp
+                                button(class="btn btn-primary") Auto-match
+                    if found_num==0
+                        div(class="alert alert-warning")
+                            p At this moment, we cannot find anybody appropriate :< Please keep your ID for later use!
+                        
+                    
         else 
             
             div(class="information pure-g")

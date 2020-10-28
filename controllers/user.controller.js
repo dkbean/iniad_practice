@@ -76,7 +76,10 @@ module.exports={
             }
             else {
                 // console.log("Invalid: " + q);
+                alert("ID not found!!");
+                console.log("vc");
                 res.redirect('/users/invalid'); 
+                
             }
         }
         
