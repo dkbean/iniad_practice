@@ -76,10 +76,7 @@ module.exports={
             }
             else {
                 // console.log("Invalid: " + q);
-                alert("ID not found!!");
-                console.log("vc");
                 res.redirect('/users/invalid'); 
-                
             }
         }
         
@@ -149,17 +146,21 @@ module.exports={
             }
             check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
             return (check1 * check2 * check3 != 0);
+
             // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
         }).write();
         var partner;
         if (curuser.partner!=null){
             partner=db.get('users1').find({id:curuser.partner}).value();;
         }
+        var end= parseInt(curuser.freeTime)+2;
+        // console.log(end);
         res.render('users/viewuser',{
             user: curuser,
             users : matchedUsers,
             found_num: matchedUsers.length,
             partner: partner,
+            end: end, 
         });
     },
 
@@ -251,7 +252,7 @@ module.exports={
         // console.log(paired_user.name);
         curuser.partner= paired_user.id;
         paired_user.partner=curuser.id;
-        res.render('users/match.pug',{
+        res.render('users/automatch.pug',{
             user1: curuser,
             user2: paired_user,
         });

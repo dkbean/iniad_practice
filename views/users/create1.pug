@@ -24,9 +24,9 @@ block content
                         span(class="ani_content-name") Your name:
             p
                 div(class="ani_form")
-                    input(type="text",name="student", autocomplete="off" required='' )
+                    input(type="text",name="student", autocomplete="off" )
                     label(for="name",class="ani_label-name")
-                        span(class="ani_content-name") Student ID:
+                        span(class="ani_content-name") (Optional) Student ID:
             div(class="input-group mb-3")
                 div(class="input-group-prepend")
                     label(class="input-group-text" for="inputGroupSelect01") Gender
@@ -52,15 +52,15 @@ block content
             
             p
                 div(class="ani_form",id="score")
-                    input(type="number",name="score",step="0.01", required='',autocomplete="off"  )
+                    input(type="number",name="score",step="0.01",autocomplete="off"  )
                     label(for="name",class="ani_label-name")
                         span(class="ani_content-name") (Optional) Your score in that subject:
-                p(id="mini_guide") (Don't worry, this kind of information is secured! However,it's OK to type 0 in the form if u don't want to share it!)    
+                p(id="mini_guide") (Don't worry, this kind of information is secured! However,it's OK to ignore it!)    
             p
                 div(class="ani_form")
                     input(type="text",name="hobbies", autocomplete="off" required='' )
                     label(for="name",class="ani_label-name")
-                        span(class="ani_content-name") Other hobbies
+                        span(class="ani_content-name") Your hobbies
             div(class="input-group mb-3")
                 div(class="input-group-prepend")
                     label(class="input-group-text" for="inputGroupSelect01") Your free time

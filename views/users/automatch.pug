@@ -2,10 +2,31 @@ extends ../layouts/commoncss
 
 
 block content
-    div(class="alert alert-success")
-        h3 #{user.name}, you have been paired successfully with:  
-        hr
-    a(href="/users") Go to homepage
+    head
+        style
+            //- include ./css/animation.css
+            include ./css/automatch.css
+            include ./css/viewuser.css
+    body
+        -var s=["Math", "Japanese", "English"]
+        div(class="alert alert-success")
+            h3 #{user1.name}, you have been "auto-paired" successfully with:  
+            hr
+            div(class="alert alert-success", id="background_"+user2.gender)               
+                p(class="badge badge-primary",id="name")=user2.name
+                p
+                if user2.age!=NULL
+                    p(class="badge badge-secondary")  #{user2.age} years old
+                p Both of you share the common interest in: 
+                ul
+                    span 
+                        each j in user2.subject
+                            each k in user1.subject
+                                if j==k
+                                    li(class="badge badge-warning")=s[j-1]
+                                    span &nbsp &nbsp
+
+    a(href="/users/"+user1.id) Go to your profile
             
 
 

@@ -34,6 +34,11 @@ block content
                                     each val in user.subject
                                         li= s[val-1]
                         p
+                            div
+                                b(class="badge badge-primary",class="hobbies") Your hobbies
+                                span="   "+ user.hobbies
+                                p
+                        p
                             b You have visited this site: 
                             span #{user.num_visited} times
                     p
@@ -70,11 +75,11 @@ block content
                                     p
                                         form(action="/users/match/"+user.id+'-'+i.id, method="get") 
                                             b Want to become a twosome with #{i.name}? &nbsp
-                                            button(class="btn btn-primary") Pair
-                    if found_num!=0&&user.score!=0
+                                            button(class="btn btn-primary",class="pair") Pair
+                    if found_num!=0&&user.score!=null&&user.score!=0
                         p
                             form(action="/users/automatch/"+user.id, method="get") 
-                                b Base on your score, let us help you find the most suitable partner for you: &nbsp
+                                b Base on your provided score, let us help you find the most suitable partner for you: &nbsp
                                 button(class="btn btn-primary") Auto-match
                     if found_num==0
                         div(class="alert alert-warning")
@@ -87,20 +92,34 @@ block content
                     button(type="button", class="alert alert-info", id="po") Your partner
                         
                     hr
-                    div(class="alert alert-success")               
+                    div(class="alert alert-success",id="background_"+partner.gender)               
                         p(class="badge badge-primary",id="name")=partner.name
                         p
                         if partner.age!=NULL
                             p(class="badge badge-secondary")  #{partner.age} years old
-                        p Both of you share the common interest in: 
-                        ul
-                            span 
-                                each j in partner.subject
-                                    each k in user.subject
-                                        if j==k
-                                            li(class="badge badge-warning")=s[j-1]
-                                        span &nbsp &nbsp
-        
+                            
+                        p
+                            span Both of you share the common interest in: 
+                            span(class="badge badge-warning")=s[partner.subject-1]
+                        p
+                                        if partner.hobbies!=NULL
+                                            span(class="badge badge-light",class="hobbies")  Hobbies
+                                            span &nbsp #{partner.hobbies} 
+                    div(class="alert alert-success",id="guide")
+                        p
+                            span="Let's meet the each other on "
+                            each val, key in {'M': 'Monday', 'T':'Tuesday', 'W':'Wednesday', 'Th':'Thursday','F':'Friday','S':'Saturday'}
+                                if key==user.freeTimeD
+                                    span=   val
+                            span=" "
+                            //- -var end=user.freeTime+2
+                            span=user.freeTime+":00 -> "+end+ ":00"
+                        p
+                            span="You can contact him/her by: "
+                            span= partner.contact
+                        p
+                            
+            
         a(href="/users") Go to Homepage
                 
 
