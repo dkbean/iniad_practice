@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 
 app.use('/users',userRoute);
 
-app.listen(3000, function () {
+app.listen((process.env.PORT || 3000), function () {
     console.log('Server listening on port ' + port);
 
 });
