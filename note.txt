@@ -1,3 +1,11 @@
 Link -> users.route.js (input necessary functions)
     -> execute appropriate functions in user.controller.js
     -> render pug files, ....
+
+Upload : 
+- app.listen(process.env.PORT || 3000)
+- create Procfile
+- npm install 
+- git add.
+- git commit -m 
+-  git push https://git.heroku.com/whispering-thicket-43089.git master   
