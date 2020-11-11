@@ -133,59 +133,6 @@ module.exports={
         // console.log(req.query.name);
         
     },
-    
-    editing:function(req,res){
-
-        var id = req.params.id;
-        var curuser = db.get('users1').find({id:id}).value();
-        curuser.name=req.query.name;// Change completed
-        // req.body.name=curuser.name;
-        // req.body.id = shortid.generate();
-        // req.body.num_visited=0;           TEST POSTING
-        // req.body.partner=null;
-        // console.log(req.body);
-        // db.get('users1').push(req.body).write();
-
-        //Return to the profile's page
-        var matchedUsers;
-        curuser.num_visited+=1;
-        matchedUsers = db.get('users1').filter(function(user){
-            if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
-                return 0;
-            }
-            var check1=0,check2=0,check3=0;
-            check3= (user.partner==null);
-            if (curuser.subject!=null){
-                for (var i=0;i<curuser.subject.length;i++){
-                    if (user.subject.indexOf(curuser.subject[i])!=-1){
-                        check1=1;
-                        // break;
-                    }
-                }
-            }
-            
-            check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
-            return (check1 * check2 * check3 != 0);
-
-            // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
-        }).write();
-        var partner;
-        if (curuser.partner!=null){
-            partner=db.get('users1').find({id:curuser.partner}).value();;
-        }
-        var end= parseInt(curuser.freeTime)+2;
-        // console.log(end);
-        res.render('users/viewuser',{
-            user: curuser,
-            users : matchedUsers,
-            found_num: matchedUsers.length,
-            partner: partner,
-            end: end,  
-            afterchanging:1,
-        });
-
-
-    },
 
     
 
@@ -270,6 +217,75 @@ module.exports={
         //     users : matchedUsers,
         // });
         
+    },
+
+    postEdit:function(req,res){
+
+        var id = req.params.id;
+        var curuser = db.get('users1').find({id:id}).value();
+        // console.log(req.body);
+        if (req.body.name!='')
+            curuser.name=req.body.name;
+        if (req.body.age!='')
+            curuser.age=req.body.age;
+        if (req.body.student!='')
+            curuser.student=req.body.student;      
+        if (req.body.score!='')
+            curuser.score=req.body.score;
+        if (req.body.subject!='')
+            curuser.subject=req.body.subject;
+        if (req.body.hobbies!='')
+            curuser.hobbies=req.body.hobbies; 
+        if (req.body.contact!='')
+            curuser.contact=req.body.contact;
+        curuser.gender=req.body.gender// Changed completely
+        // console.log(curuser.name);
+        // req.body.name=curuser.name;
+        // req.body.id = shortid.generate();
+        // req.body.num_visited=0;           TEST POSTING
+        // req.body.partner=null;
+        // console.log(req.body);
+        // db.get('users1').push(req.body).write();
+
+        //Return to the profile's page
+        var matchedUsers;
+        curuser.num_visited+=1;
+        matchedUsers = db.get('users1').filter(function(user){
+            if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
+                return 0;
+            }
+            var check1=0,check2=0,check3=0;
+            check3= (user.partner==null);
+            if (curuser.subject!=null){
+                for (var i=0;i<curuser.subject.length;i++){
+                    if (user.subject.indexOf(curuser.subject[i])!=-1){
+                        check1=1;
+                        // break;
+                    }
+                }
+            }
+            
+            check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
+            return (check1 * check2 * check3 != 0);
+
+            // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
+        }).write();
+        var partner;
+        if (curuser.partner!=null){
+            partner=db.get('users1').find({id:curuser.partner}).value();;
+        }
+        var end= parseInt(curuser.freeTime)+2;
+        // console.log(end);
+        res.render('users/viewuser',{
+            user: curuser,
+            users : matchedUsers,
+            found_num: matchedUsers.length,
+            partner: partner,
+            end: end,  
+            afterchanging:1,
+        });
+
+
     },
 
     match  : function(req,res){

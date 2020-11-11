@@ -4,6 +4,15 @@ h2, h3 {
     font-weight: 100;
 }
 
+.small-text{
+    font-size: 13;
+    color: gray;
+}
+
+::placeholder { 
+    color: rgba(255, 0, 0, 0.226);
+}
+
 p {
     line-height: 1.6em;
 }
@@ -14,6 +23,10 @@ body{
     background: transparent url('https://4.bp.blogspot.com/-dElkjRKyTXI/W6DTxN0z3cI/AAAAAAABO_E/nqrrUzCqlKk6D67k0UTAGVESI2L5RKgeACLcBGAs/s800/school_eakon_danbou_seifuku.png') right no-repeat ;
     background-size: 30%;
     
+}
+
+#contact{
+    width: 70%;
 }
 
 #score{

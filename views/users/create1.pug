@@ -35,12 +35,12 @@ block content
                         option(value="female") Female
             p
                 div(class="ani_form",id="age")
-                    input(type="text",name="age", required='',autocomplete="off"  )
+                    input(type="number",name="age", required='',autocomplete="off"  )
                     label(for="name",class="ani_label-name")
                         span(class="ani_content-name") Your age:
             p
                 label The subject you find interested in: &nbsp &nbsp
-                input(type='radio', name='subject', value='1')#Math
+                input(type='radio', name='subject', value='1', checked= "checked")#Math
                 label(for='Math')
                     span Math &nbsp &nbsp &nbsp
                 input(type='radio', name='subject', value='2')#Japanese
@@ -78,7 +78,7 @@ block content
                     option(value="14") 14:00 -> 16:00
                     option(value="16") 16:00 -> 18:00
             p
-                div(class="ani_form")
+                div(class="ani_form",id="contact")
                     input(type="text",name="contact", autocomplete="off" required='' )
                     label(for="name",class="ani_label-name")
                         span(class="ani_content-name") How can your "future partner" contact you ?

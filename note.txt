@@ -2,6 +2,9 @@ Link -> users.route.js (input necessary functions)
     -> execute appropriate functions in user.controller.js
     -> render pug files, ....
 
+GET : name = -> req.query.
+POST: name = -> req.body. 
+
 Upload : 
 - app.listen(process.env.PORT || 3000)
 - create Procfile
