@@ -8,9 +8,11 @@ block content
                   each user in users1
                       li
                           span=user.name +' '
-                          a(href="/users/"+ user.id) View this user's information
+                          a(href="/users/"+ user.id) View 
+                          span / 
+                          a(href="/users/edit/" + user.id ) Edit this user's information
       p
-        span Go to the homepage: 
+        span Go to the homepage:
         a(href='../') Let's go
       //- case friends
       //-   when 0

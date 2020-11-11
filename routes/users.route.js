@@ -14,6 +14,7 @@ router.get('/create1', controller.create1);
 // router.get('/create2', controller.create2);
 router.get('/invalid', controller.invalid) ; 
 
+router.get('/edit/:id', controller.edit);
 
 router.get('/:id',controller.viewUser);
 

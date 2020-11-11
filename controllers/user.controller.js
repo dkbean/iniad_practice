@@ -119,6 +119,43 @@ module.exports={
         });
     },
 
+    edit: function(req,res){
+        var id = req.params.id;
+        var curuser = db.get('users1').find({id:id}).value();
+        var matchedUsers;
+        curuser.num_visited+=1;
+        matchedUsers = db.get('users1').filter(function(user){
+            if (user.subject==null||user.subject.length<=0||user.id==curuser.id){
+                return 0;
+            }
+            var check1=0,check2=0,check3=0;
+            check3= (user.partner==null);
+            for (var i=0;i<curuser.subject.length;i++){
+                if (user.subject.indexOf(curuser.subject[i])!=-1){
+                    check1=1;
+                    // break;
+                }
+            }
+            check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
+            return (check1 * check2 * check3 != 0);
+
+            // return user.subject!=null&&user.subject.length>0&&user.subject.indexOf(q)!=-1;// check if there are anyone whose favorite subject is Math
+        }).write();
+        var partner;
+        if (curuser.partner!=null){
+            partner=db.get('users1').find({id:curuser.partner}).value();;
+        }    
+        var end= parseInt(curuser.freeTime)+2;
+        // console.log(end);
+        res.render('users/viewuser',{
+            user: curuser,
+            users : matchedUsers,
+            found_num: matchedUsers.length,
+            partner: partner,
+            end: end, 
+        });
+    },
+
     
 
     // create2: function(req,res){
