@@ -10,6 +10,8 @@ block content
         div(class="banner")
                 h1(class="banner-head") Your profile
         -var s=["Math", "Japanese", "English"]
+        //- div=afterchanging
+        
         div(class="information pure-g")
                 div
                     div(class="alert alert-primary" )
@@ -119,7 +121,9 @@ block content
                             span= partner.contact
                         p
                             
-            
+        if afterchanging==1
+            script(type="text/javascript").
+                alert("Making changes successfully!!!!!");
         a(href="/users") Go to Homepage
                 
 

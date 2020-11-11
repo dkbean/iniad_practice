@@ -1,11 +1,14 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+// var popup = require('popups');
 
 const db= require('../db');
 const shortid= require('shortid');
 var num_of_sub=3;
 module.exports={
+    
+
     index:  function(req,res){
         // console.log(db.get('users1').value().length);
         res.render('users/index.pug',{
@@ -122,6 +125,28 @@ module.exports={
     edit: function(req,res){
         var id = req.params.id;
         var curuser = db.get('users1').find({id:id}).value();
+        // console.log(curuser.name);
+        res.render('users/edit',{
+            users : db.get('users1').value(),
+            curuser: curuser,
+        });
+        // console.log(req.query.name);
+        
+    },
+    
+    editing:function(req,res){
+
+        var id = req.params.id;
+        var curuser = db.get('users1').find({id:id}).value();
+        curuser.name=req.query.name;// Change completed
+        // req.body.name=curuser.name;
+        // req.body.id = shortid.generate();
+        // req.body.num_visited=0;           TEST POSTING
+        // req.body.partner=null;
+        // console.log(req.body);
+        // db.get('users1').push(req.body).write();
+
+        //Return to the profile's page
         var matchedUsers;
         curuser.num_visited+=1;
         matchedUsers = db.get('users1').filter(function(user){
@@ -130,12 +155,15 @@ module.exports={
             }
             var check1=0,check2=0,check3=0;
             check3= (user.partner==null);
-            for (var i=0;i<curuser.subject.length;i++){
-                if (user.subject.indexOf(curuser.subject[i])!=-1){
-                    check1=1;
-                    // break;
+            if (curuser.subject!=null){
+                for (var i=0;i<curuser.subject.length;i++){
+                    if (user.subject.indexOf(curuser.subject[i])!=-1){
+                        check1=1;
+                        // break;
+                    }
                 }
             }
+            
             check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
             return (check1 * check2 * check3 != 0);
 
@@ -144,7 +172,7 @@ module.exports={
         var partner;
         if (curuser.partner!=null){
             partner=db.get('users1').find({id:curuser.partner}).value();;
-        }    
+        }
         var end= parseInt(curuser.freeTime)+2;
         // console.log(end);
         res.render('users/viewuser',{
@@ -152,8 +180,11 @@ module.exports={
             users : matchedUsers,
             found_num: matchedUsers.length,
             partner: partner,
-            end: end, 
+            end: end,  
+            afterchanging:1,
         });
+
+
     },
 
     
@@ -175,12 +206,15 @@ module.exports={
             }
             var check1=0,check2=0,check3=0;
             check3= (user.partner==null);
-            for (var i=0;i<curuser.subject.length;i++){
-                if (user.subject.indexOf(curuser.subject[i])!=-1){
-                    check1=1;
-                    // break;
+            if (curuser.subject!=null){
+                for (var i=0;i<curuser.subject.length;i++){
+                    if (user.subject.indexOf(curuser.subject[i])!=-1){
+                        check1=1;
+                        // break;
+                    }
                 }
             }
+            
             check2= (user.freeTimeD +user.freeTime== curuser.freeTimeD + curuser.freeTime);
             return (check1 * check2 * check3 != 0);
 
@@ -197,7 +231,8 @@ module.exports={
             users : matchedUsers,
             found_num: matchedUsers.length,
             partner: partner,
-            end: end, 
+            end: end,
+            afterchanging: 0, 
         });
     },
 
@@ -236,7 +271,7 @@ module.exports={
         // });
         
     },
-    
+
     match  : function(req,res){
         var id1 = req.params.id1;
         var id2= req.params.id2;

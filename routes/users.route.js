@@ -16,6 +16,8 @@ router.get('/invalid', controller.invalid) ;
 
 router.get('/edit/:id', controller.edit);
 
+router.get('/editing/:id',controller.editing);
+
 router.get('/:id',controller.viewUser);
 
 router.get('/match/:id1-:id2',controller.match);
@@ -23,6 +25,9 @@ router.get('/match/:id1-:id2',controller.match);
 router.get('/automatch/:id',controller.automatch);
 
 router.post('/create1',controller.postCreate1);
+
+
+// router.post('/edit', controller.postEdit);
 
 
 // router.post('/create2',controller.postCreate2);
